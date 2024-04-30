@@ -52,6 +52,7 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 		}
 	}
 
+	@Override
 	public void visit(ReturnStatement node) {
 		if(this.className != null){
 			if (node.getExpression() != null) {
@@ -67,6 +68,7 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 		}
 	}
 	
+	@Override
 	public void visit(ThrowStatement node) {
 		if(this.className != null) {
 			if(node.getExpression()!=null)
@@ -74,6 +76,7 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 		}
 	}
 
+	@Override
 	public void visit(TypeDeclaration node) {
 		if(this.className != null) {
 			ITypeBinding resolvedType = node.resolveBinding();
@@ -95,6 +98,7 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 
 	}
 
+	@Override
 	public void visit(MethodDeclaration node) {
 		if(this.className != null) {
 			IMethodBinding resolvedMethod = node.resolveBinding();
@@ -145,24 +149,28 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 
 	}
 
+	@Override
 	public void visit(NormalAnnotation node) {
 		if(this.className != null) {
 			coupleTo(node);
 		}
 	}
 
+	@Override
 	public void visit(MarkerAnnotation node) {
 		if(this.className != null) {
 			coupleTo(node);
 		}
 	}
 
+	@Override
 	public void visit(SingleMemberAnnotation node) {
 		if(this.className != null) {
 			coupleTo(node);
 		}
 	}
 
+	@Override
 	public void visit(ParameterizedType node) {
 		if(this.className != null) {
 			

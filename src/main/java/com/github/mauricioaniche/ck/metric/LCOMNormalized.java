@@ -27,6 +27,7 @@ public class LCOMNormalized implements CKASTVisitor, ClassLevelMetric {
 		this.flags = new ArrayList<Integer>();
 	}
 	
+	@Override
 	public void visit(FieldDeclaration node) {
 		
 		for(Object o : node.fragments()) {
@@ -36,6 +37,7 @@ public class LCOMNormalized implements CKASTVisitor, ClassLevelMetric {
 		
 	}
 	
+	@Override
 	public void visit(SimpleName node) {
 		String name = node.getFullyQualifiedName();
 		if(declaredFields.containsKey(name)) {
@@ -50,6 +52,7 @@ public class LCOMNormalized implements CKASTVisitor, ClassLevelMetric {
 		}
 	}
 	
+	@Override
 	public void visit(MethodDeclaration node) {
 		
 		String currentMethodName = JDTUtils.getMethodFullName(node);
