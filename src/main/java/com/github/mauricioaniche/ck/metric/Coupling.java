@@ -259,7 +259,7 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 				return;
 	
 			String type = binding.getQualifiedName();
-			if (type.equals("null"))
+			if ("null".equals(type))
 				return;
 	
 			if (isFromJava(type) || binding.isPrimitive())
@@ -278,7 +278,7 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 		
 		String methodNameInvoked = JDTUtils.getQualifiedMethodFullName(binding);
 		
-		if (methodNameInvoked.equals("null"))
+		if ("null".equals(methodNameInvoked))
 			return;
 
 		if (isFromJava(methodNameInvoked))
