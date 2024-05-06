@@ -21,14 +21,14 @@ public class Coupling implements CKASTVisitor, ClassLevelMetric, MethodLevelMetr
 		this.extras = CouplingExtras.getInstance();
 	}
 
-	@Override
+	
 	public void visit(VariableDeclarationStatement node) {
 		if(this.className != null) {
 			coupleTo(node.getType());
 		}
 	}
 
-	@Override
+	
 	public void visit(ClassInstanceCreation node) {
 		if(this.className != null) {
 			coupleTo(node.getType());
