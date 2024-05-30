@@ -35,7 +35,9 @@ public class Runner {
 		// path where the output csv files will be exported
 		String outputDir = "";
 		if(args.length >= 5)
-			outputDir = args[4];
+			{
+			    outputDir = args[4];
+			}
 
     // load possible additional ignored directories
     //noinspection ManualArrayToCollectionCopy
