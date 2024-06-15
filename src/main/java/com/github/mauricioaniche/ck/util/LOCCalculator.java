@@ -1,5 +1,6 @@
 package com.github.mauricioaniche.ck.util;
 
+import io.github.pixee.security.BoundedLineReader;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
@@ -54,7 +55,7 @@ public class LOCCalculator {
 		boolean commentBegan = false;
 		String line = null;
 
-		while ((line = bReader.readLine()) != null) {
+		while ((line = BoundedLineReader.readLine(bReader, 5_000_000)) != null) {
 			line = line.trim();
 			if ("".equals(line) || line.startsWith("//")) {
 				continue;
